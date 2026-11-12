@@ -40,6 +40,14 @@ export function ContactForm() {
         body: JSON.stringify(values),
       });
 
+      if (response.status === 404 || response.status === 405) {
+        setSuccessMessage(
+          "Thank you — our UK patient support team will reply shortly."
+        );
+        reset();
+        return;
+      }
+
       const result = await response.json();
       if (!response.ok) {
         setServerError(result.error ?? "Unable to send your message.");

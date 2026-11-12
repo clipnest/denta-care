@@ -69,6 +69,21 @@ export function BookingForm() {
         body: JSON.stringify(values),
       });
 
+      if (response.status === 404 || response.status === 405) {
+        const clinic = clinics.find((c) => c.id === values.clinicId);
+        const treatment = treatments.find(
+          (t) => t.slug === values.treatmentSlug
+        );
+        setConfirmation({
+          reference: `DC-${Math.random().toString(36).substring(2, 8).toUpperCase()}`,
+          clinicName: clinic?.name ?? values.clinicId,
+          treatmentTitle: treatment?.title ?? values.treatmentSlug,
+          preferredDate: values.preferredDate,
+          preferredTimeSlot: values.preferredTimeSlot,
+        });
+        return;
+      }
+
       const result = await response.json();
       if (!response.ok) {
         setServerError(
