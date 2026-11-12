@@ -1,103 +1,67 @@
-import Image from "next/image";
+import { HeroSection } from "@/components/home/HeroSection";
+import { MarqueeStrip } from "@/components/home/MarqueeStrip";
+import { AboutBento } from "@/components/home/AboutBento";
+import { TreatmentsPreview } from "@/components/home/TreatmentsPreview";
+import { Button } from "@/components/ui/Button";
+import { MapPin, Phone } from "lucide-react";
 
-export default function Home() {
+const jsonLd = {
+  "@context": "https://schema.org",
+  "@type": "Dentist",
+  name: "Denta Care",
+  description:
+    "150+ expert dentists across 20+ UK clinics offering routine dental care, braces, dentures, implants, and cosmetic dentistry.",
+  areaServed: "United Kingdom",
+  openingHours: "Mo-Su 10:00-19:00",
+  telephone: "+44 20 7946 0192",
+};
+
+export default function HomePage() {
   return (
-    <div className="font-sans grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20">
-      <main className="flex flex-col gap-[32px] row-start-2 items-center sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol className="font-mono list-inside list-decimal text-sm/6 text-center sm:text-left">
-          <li className="mb-2 tracking-[-.01em]">
-            Get started by editing{" "}
-            <code className="bg-black/[.05] dark:bg-white/[.06] font-mono font-semibold px-1 py-0.5 rounded">
-              src/app/page.tsx
-            </code>
-            .
-          </li>
-          <li className="tracking-[-.01em]">
-            Save and see your changes instantly.
-          </li>
-        </ol>
+    <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+      />
+      <HeroSection />
+      <MarqueeStrip />
+      <AboutBento />
+      <TreatmentsPreview />
 
-        <div className="flex gap-4 items-center flex-col sm:flex-row">
-          <a
-            className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:w-auto"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
-            />
-            Deploy now
-          </a>
-          <a
-            className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 w-full sm:w-auto md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Read our docs
-          </a>
+      {/* UK Clinics & Appointment Banner */}
+      <section className="mx-auto max-w-[1240px] px-6 pb-16 lg:px-12 lg:pb-24">
+        <div className="flex flex-col justify-between gap-8 rounded-3xl bg-gradient-to-r from-surface via-[#EEF8FD] to-peach-pill/40 dark:via-[#111E33] p-8 sm:p-12 lg:flex-row lg:items-center border border-sky-strip/40">
+          <div className="max-w-xl space-y-3">
+            <span className="inline-flex items-center gap-1.5 rounded-full bg-white dark:bg-[#111A2B] px-3.5 py-1 text-[12px] font-semibold text-foreground shadow-xs">
+              <MapPin className="h-3.5 w-3.5 text-primary" />
+              20+ UK Dental Clinics
+            </span>
+            <h2 className="text-[28px] font-semibold leading-tight tracking-[-0.02em] text-foreground sm:text-[36px]">
+              Ready for a calmer, brighter dental visit?
+            </h2>
+            <p className="text-[15px] leading-relaxed text-muted">
+              Choose your nearest UK clinic and request a morning, afternoon, or
+              evening appointment in under 60 seconds.
+            </p>
+          </div>
+
+          <div className="flex flex-wrap items-center gap-4">
+            <Button href="/book" size="lg">
+              Book Appointment
+            </Button>
+            <Button href="/clinics" variant="outline" size="lg">
+              Find a UK Clinic
+            </Button>
+            <a
+              href="tel:+442079460192"
+              className="inline-flex items-center gap-2 text-[14px] font-semibold text-foreground hover:text-primary transition-colors px-2"
+            >
+              <Phone className="h-4 w-4 text-accent-blue" />
+              +44 20 7946 0192
+            </a>
+          </div>
         </div>
-      </main>
-      <footer className="row-start-3 flex gap-[24px] flex-wrap items-center justify-center">
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
-          />
-          Learn
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
-      </footer>
-    </div>
+      </section>
+    </>
   );
 }
