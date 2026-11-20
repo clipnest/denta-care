@@ -6,6 +6,7 @@ import { ArrowLeft, CheckCircle2, Clock, PoundSterling } from "lucide-react";
 import { getTreatmentBySlug, treatments } from "@/data/treatments";
 import { PillTag } from "@/components/ui/PillTag";
 import { Button } from "@/components/ui/Button";
+import { getAssetPath } from "@/lib/assets";
 
 export function generateStaticParams() {
   return treatments.map((t) => ({ slug: t.slug }));
@@ -118,7 +119,7 @@ export default async function TreatmentDetailPage({
         <div className="lg:col-span-5 space-y-6 lg:sticky lg:top-24">
           <div className="relative h-[280px] sm:h-[340px] w-full overflow-hidden rounded-3xl border border-border-subtle">
             <Image
-              src={treatment.image}
+              src={getAssetPath(treatment.image)}
               alt={treatment.imageAlt}
               fill
               sizes="(max-width: 1024px) 100vw, 42vw"

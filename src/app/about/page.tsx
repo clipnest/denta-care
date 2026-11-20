@@ -4,6 +4,7 @@ import { Award, HeartHandshake, Microscope, ShieldCheck } from "lucide-react";
 import { Button } from "@/components/ui/Button";
 import { PillTag } from "@/components/ui/PillTag";
 import { visionSlides } from "@/data/vision";
+import { getAssetPath } from "@/lib/assets";
 
 export const metadata: Metadata = {
   title: "About Denta Care",
@@ -66,7 +67,7 @@ export default function AboutPage() {
         <div className="lg:col-span-6 grid grid-cols-2 gap-4">
           <div className="relative h-[220px] sm:h-[260px] overflow-hidden rounded-2xl border border-border-subtle">
             <Image
-              src="/images/about-clinic-1.jpg"
+              src={getAssetPath("/images/about-clinic-1.jpg")}
               alt="Bright modern Denta Care clinic suite with natural light"
               fill
               sizes="(max-width: 1024px) 50vw, 25vw"
@@ -75,7 +76,7 @@ export default function AboutPage() {
           </div>
           <div className="relative h-[220px] sm:h-[260px] overflow-hidden rounded-2xl border border-border-subtle mt-6">
             <Image
-              src="/images/about-patient-1.jpg"
+              src={getAssetPath("/images/about-patient-1.jpg")}
               alt="Smiling patient relaxing in a Denta Care chair"
               fill
               sizes="(max-width: 1024px) 50vw, 25vw"

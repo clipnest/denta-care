@@ -1,5 +1,6 @@
 import Image from "next/image";
 import { Button } from "@/components/ui/Button";
+import { getAssetPath } from "@/lib/assets";
 
 const heroStats = [
   { value: "150+", label: "Expert Dentists" },
@@ -43,7 +44,7 @@ export function HeroSection() {
           <div className="order-1 flex justify-center lg:order-2 lg:col-span-5">
             <div className="relative w-[260px] h-[260px] sm:w-[320px] sm:h-[320px] lg:w-[380px] lg:h-[380px] lg:-mb-16 dark:rounded-full dark:bg-white/95 dark:p-4 dark:shadow-[0_0_50px_rgba(56,189,248,0.18)]">
               <Image
-                src="/images/hero-tooth.jpg"
+                src={getAssetPath("/images/hero-tooth.jpg")}
                 alt="Glossy 3D tooth with dynamic electric blue water splash representing fresh dental care"
                 fill
                 priority

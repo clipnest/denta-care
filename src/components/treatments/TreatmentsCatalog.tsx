@@ -10,6 +10,7 @@ import {
   type TreatmentCategory,
 } from "@/data/treatments";
 import { PillTag } from "@/components/ui/PillTag";
+import { getAssetPath } from "@/lib/assets";
 
 export function TreatmentsCatalog() {
   const [selectedCategory, setSelectedCategory] = useState<
@@ -69,7 +70,7 @@ export function TreatmentsCatalog() {
             <div>
               <div className="relative h-48 w-full overflow-hidden bg-surface">
                 <Image
-                  src={treatment.image}
+                  src={getAssetPath(treatment.image)}
                   alt={treatment.imageAlt}
                   fill
                   sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"

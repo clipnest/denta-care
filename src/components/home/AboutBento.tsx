@@ -4,6 +4,7 @@ import Image from "next/image";
 import { useState } from "react";
 import { visionSlides } from "@/data/vision";
 import { PillTag } from "@/components/ui/PillTag";
+import { getAssetPath } from "@/lib/assets";
 
 export function AboutBento() {
   const [activeIndex, setActiveIndex] = useState(0);
@@ -68,7 +69,7 @@ export function AboutBento() {
         <div className="md:col-span-6 flex flex-col gap-3">
           <div className="relative h-[220px] sm:h-[250px] w-full overflow-hidden rounded-2xl border border-border-subtle/60">
             <Image
-              src="/images/about-clinic-1.jpg"
+              src={getAssetPath("/images/about-clinic-1.jpg")}
               alt="Bright modern Denta Care dental clinic interior with floor-to-ceiling windows and digital monitors"
               fill
               sizes="(max-width: 768px) 100vw, 50vw"
@@ -84,7 +85,7 @@ export function AboutBento() {
         <div className="md:col-span-6 flex items-center gap-3">
           <div className="relative h-[240px] sm:h-[270px] flex-1 overflow-hidden rounded-2xl border border-border-subtle/60">
             <Image
-              src="/images/about-patient-1.jpg"
+              src={getAssetPath("/images/about-patient-1.jpg")}
               alt="Smiling young woman seated comfortably in a modern Denta Care treatment chair"
               fill
               sizes="(max-width: 768px) 85vw, 42vw"
@@ -103,7 +104,7 @@ export function AboutBento() {
           </PillTag>
           <div className="relative h-[240px] sm:h-[260px] flex-1 overflow-hidden rounded-2xl border border-border-subtle/60">
             <Image
-              src="/images/about-patient-2.jpg"
+              src={getAssetPath("/images/about-patient-2.jpg")}
               alt="Confident mature patient smiling warmly in a bright Denta Care dental suite"
               fill
               sizes="(max-width: 768px) 85vw, 38vw"
@@ -119,7 +120,7 @@ export function AboutBento() {
           </div>
           <div className="relative h-[220px] sm:h-[250px] w-full overflow-hidden rounded-2xl border border-border-subtle/60">
             <Image
-              src="/images/about-clinic-2.jpg"
+              src={getAssetPath("/images/about-clinic-2.jpg")}
               alt="Calm, natural-lit Denta Care treatment room with ergonomic white dental chair"
               fill
               sizes="(max-width: 768px) 100vw, 55vw"
